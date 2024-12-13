@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playroom</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Rubik Doodle Shadow & Comic Neue -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=DM+Serif+Text:ital@0;1&family=Delius&family=Gowun+Dodum&family=Kalam:wght@300;400;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Quicksand:wght@300..700&family=Rubik+Doodle+Shadow&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <style type="text/css">
+    /* Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=DM+Serif+Text:ital@0;1&family=Delius&family=Gowun+Dodum&family=Kalam:wght@300;400;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Quicksand:wght@300..700&family=Rubik+Doodle+Shadow&display=swap');
+
+    * {
+      font-family: 'Delius', sans-serif;
+    }
+
+    header * {
+      font-family: 'Rubik Doodle Shadow', sans-serif;
+    }
+
+    html {
+      height: 100vh;
+      overflow: hidden;
+      cursor: url(./img/playroom/cursor_hand_50px.png), auto;
+    }
+
+    body {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #c08552;
+    }
+
+    /* Home btn */
+    .home-btn {
+      position: absolute;
+      top: 40px;
+      left: 80px;
+      width: 100px;
+      height: auto;
+      transform: scale(1);
+      transition-duration: .3s;
+    }
+
+    .home-btn img {
+      width: 100%;
+    }
+    .home-btn:hover {
+      transform: scale(1.2);
+    }
+    .home-btn img:hover {
+      cursor: url(./img/playroom/cursor_normal_50px.png), auto;
+    }
+    .home-btn img:active {
+      cursor: url(./img/playroom/cursor_click_50px.png), auto;
+    }
+
+
+    /* Playable things */
+    .container {
+      position: relative;
+      width: 60vw;
+      height: 70vh;
+      border-radius: 50px;
+      padding: 50px;
+      background-color: #f3e9dc;
+
+      border: solid 10px #5e3023;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .pinwheel {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background-image: url('./img/playroom/pinwheel.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    .pinwheel:hover {
+      cursor: url('./img/playroom/cursor_normal_50px.png') 2 2, auto !important;
+    }
+    .pinwheel:active {
+      cursor: url('./img/playroom/cursor_click_50px.png') 2 2, auto !important;
+    }
+
+    .ball {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-image: url('./img/playroom/ball.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    .ball:hover {
+      cursor: url('./img/playroom/cursor_normal_50px.png') 2 2, auto !important;
+    }
+    .ball:active {
+      cursor: url('./img/playroom/cursor_click_50px.png') 2 2, auto !important;
+    }
+
+    .scratcherplace {
+      position: absolute;
+      width: 330px;
+      height: 350px;
+    }
+    .scratcher {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 330px;
+      height: 220px;
+      background-image: url('./img/playroom/scratcher.jpg');
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    .catclaw {
+      position: absolute;
+      top: 50px;
+      left: 80px;
+      width: 165px;
+      height: 200px;
+      background-image: url('./img/playroom/catclaw.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    .catclaw:hover {
+      cursor: url('./img/playroom/cursor_normal_50px.png') 2 2, auto !important;
+    }
+    .catclaw:active {
+      cursor: url('./img/playroom/cursor_click_50px.png') 2 2, auto !important;
+    }
+
+    /* Anything smaller than a ipad classic = mobile phone size */
+    @media only screen and (max-width: 768px) {
+      .container {
+        width: 80vw;
+        height: 80vh;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="home-btn">
+    <a href="./index.html"><img src="./img/playroom/arrow.png" alt="back_to_home"/></a>
+  </div>
+  
+  <div class="title"><h1 style="font-family: Rubik Doodle Shadow; color: #f3e9dc; font-size: 50px; margin-bottom: 20px;">Play Room !!</h1></div>
+
+  <div class="container">
+    <div class="pinwheel"></div>
+    <div class="ball"></div>
+    <div class="scratcherplace">
+      <div class="scratcher"></div>
+      <div class="catclaw"></div>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', () => {
+
+      const pinwheel = document.getElementsByClassName('pinwheel')[0]
+      const ball = document.getElementsByClassName('ball')[0]
+      const scratcherplace = document.getElementsByClassName('scratcherplace')[0]
+      const scratcher = document.getElementsByClassName('scratcher')[0]
+      const catclaw = document.getElementsByClassName('catclaw')[0]
+      gsap.to(pinwheel, {
+        duration: 1,
+        x: (Math.random()*2 - 1)*innerWidth*0.2,
+        y: (Math.random()*2 - 1)*innerHeight*0.3,
+        rotation: Math.random()*720 - 360
+      })
+      gsap.to(ball, {
+        duration: 1,
+        x: (Math.random()*2 - 1)*innerWidth*0.2,
+        y: (Math.random()*2 - 1)*innerHeight*0.3,
+        rotation: Math.random() >= 0.5 ? 360 : -360
+      })
+      gsap.to(scratcherplace, {
+        duration: 1,
+        x: Math.random()>=0.5 ? innerWidth*0.2 : -innerWidth*0.2,
+        y: Math.random()>=0.5 ? innerHeight*0.1 : -innerHeight*0.1,
+      })
+
+      gsap.registerPlugin(Draggable);
+
+      Draggable.create(".pinwheel", {
+        type: "rotation",
+        inertia: true, // Enable smooth inertia after release
+        allowEventDefault: true
+      });
+
+      Draggable.create(".ball", {
+        // type: "rotation",
+        bounds: ".container",
+        inertia: true, // Enable smooth inertia after release
+        allowEventDefault: true
+      });
+      
+      Draggable.create(".catclaw", {
+        // type: "y",
+        bounds: ".scratcherplace",
+        inertia: true,
+        allowEventDefault: true
+      })
+    })
+  </script>
+</body>
+</html>

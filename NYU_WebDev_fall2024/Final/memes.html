@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memes</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Rubik Doodle Shadow & Comic Neue -->
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=DM+Serif+Text:ital@0;1&family=Delius&family=Gowun+Dodum&family=Kalam:wght@300;400;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Quicksand:wght@300..700&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
+
+  <style type="text/css">
+    /* Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=DM+Serif+Text:ital@0;1&family=Delius&family=Gowun+Dodum&family=Kalam:wght@300;400;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Quicksand:wght@300..700&family=Rubik+Doodle+Shadow&display=swap');
+
+    * {
+      font-family: 'Delius', sans-serif;
+      box-sizing: border-box;
+    }
+
+    header * {
+      font-family: 'Rubik Doodle Shadow', sans-serif;
+    }
+
+    /* HEADER ------------------------------------------ */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+    }
+
+    .top-nav {
+      width: 100%;
+      height: 70px;
+      background-color: #3b2c93a1;
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      box-shadow: 0 0 10px 0 #3b2c93cc;
+    }
+
+    .top-nav > a {
+      margin: 0 30px;
+      height: 50px;
+      background-color: white;
+    }
+    .top-nav > a img {
+      width: auto;
+      height: 100%;
+    }
+
+    .top-nav h4 {
+      margin: 0;
+      font-weight: normal;
+      font-size: 18pt;
+    }
+    .top-nav a:hover > h4 {
+      font-weight: bold;
+      font-size: 20pt;
+    }
+
+    .top-nav ul {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: right;
+      align-items: center;
+      padding: 0;
+      margin: 0 40px;
+      list-style-type: none;
+    }
+
+    .top-nav ul li {
+      width: 200px;
+      height: 100%;
+      transition: all 0.5s;
+    }
+
+    .top-nav ul li:hover {
+      background-color: #361ec2b3;
+    }
+
+    .top-nav ul li a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      color: white;
+    }
+    /* ------------ */
+
+    html {
+      height: 100vh;
+      background-image: url('./img/meme/meme-background.gif');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-color: #23176699;
+      background-blend-mode: darken;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 100px 10px;
+    }
+
+    .container {
+      width: 90vw;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .meme {
+      width: 260px;
+      height: 260px;
+      margin: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .gif-container {
+      position: relative;
+      width: auto;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .gif-container img {
+      position: absolute;
+      /* top: 0; */
+      opacity: 1;
+    }
+    .gif-container img.gif {
+      opacity: 0; 
+    }
+    .gif-container:hover img.static {
+      opacity: 0;
+    }
+    .gif-container:hover img.gif {
+      opacity: 1;
+    }
+
+    .meme img {
+      height: 100%;
+      width: auto;
+      border-radius: 30px;
+      opacity: .7;
+      filter: grayscale(.7);
+      transition-duration: .3s;
+    }
+    .meme:hover img {
+      opacity: 1;
+      scale: 1.2;
+      filter: grayscale(0);
+    }
+
+    /* Anything smaller than a ipad classic = mobile phone size */
+    @media only screen and (max-width: 768px) {
+      
+      .top-nav > a {
+        display: none;
+      }
+      .top-nav ul {
+        margin: 0;
+        width: 100%;
+      }
+      .top-nav ul li {
+        width: 25%;
+      }
+
+      .container {
+        width: 80vw;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .meme {
+        width: 100%;
+        height: 300px;
+        margin: 30px 0;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Top Nav Bar -->
+    <nav class="top-nav">
+      <ul>
+        <li class="nav-menu"><a href="./index.html"><h4>Home</h4></a></li>
+        <li class="nav-menu"><a href="#"><h4>About</h4></a></li>
+        <li class="nav-menu"><a href="#"><h4>News</h4></a></li>
+        <li class="nav-menu"><a href="#"><h4>Posts</h4></a></li>
+      </ul>
+      <!-- <div class="reg-btn"><a href="#"><h4>Register</h4></a></div> -->
+    </nav>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="meme">
+        <img src="./img/meme/orange_loaf.jpg"/>
+      </div>
+      <div class="meme">
+        <div class="gif-container">
+          <img src="./img/meme/oiiaoiia.gif" class="gif"/>
+          <img src="./img/meme/oiiaoiia-static.png" class="static"/>
+        </div>
+      </div>
+      <div class="meme">
+        <div class="gif-container">
+          <img src="./img/meme/nyancat.gif" class="gif"/>
+          <img src="./img/meme/nyancat-static.png" class="static"/>
+        </div>
+      </div>
+      <div class="meme">
+        <div class="gif-container">
+          <img src="./img/meme/happy_cat.gif" class="gif"/>
+          <img src="./img/meme/happy_cat-static.png" class="static"/>
+        </div>
+      </div>
+      <div class="meme">
+        <img src="./img/meme/shocked_cat.jpg"/>
+      </div>
+      <div class="meme">
+        <div class="gif-container">
+          <img src="./img/meme/popcat.gif" class="gif"/>
+          <img src="./img/meme/popcat-static.png" class="static"/>
+        </div>
+      </div>
+      <div class="meme">
+        <div class="gif-container">
+          <img src="./img/meme/bananacat.gif" class="gif"/>
+          <img src="./img/meme/bananacat-static.png" class="static"/>
+        </div>
+      </div>
+      <div class="meme">
+        <div class="gif-container">
+          <img src="./img/meme/huh.gif" class="gif"/>
+          <img src="./img/meme/huh-static.png" class="static"/>
+        </div>
+      </div>
+      <div class="meme">
+        <img src="./img/meme/car.jpg"/>
+      </div>
+      <div class="meme">
+        <div class="gif-container">
+          <img src="./img/meme/(-_-).gif" class="gif"/>
+          <img src="./img/meme/(-_-)-static.png" class="static"/>
+        </div>
+      </div>
+      <div class="meme">
+        <img src="./img/meme/crying.jpg"/>
+      </div>
+      <div class="meme">
+        <img src="./img/meme/tired.jpg"/>
+      </div>
+      <div class="meme">
+        <img src="./img/meme/surprised.jpg"/>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
